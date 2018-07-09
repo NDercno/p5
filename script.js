@@ -1,23 +1,59 @@
-let angle = 0;
+drops = [];
 
-function setup(){
-	createCanvas(1920,1080);
+class Drop
+{
+	constructor(x, y){
+		this.x = x;
+		this.y = y;
+	}
+
+	step()
+	{
+		this.y+=10;
+		if(this.y > height)
+		{
+			this.y = 0;
+			this.x = random(width);
+			if(this == drops[0])
+			{
+				this.x = mouseX;
+			}
+		}
+	}
+
+	paint()
+	{
+		strokeWeight(3);
+		stroke(255);
+		line(this.x, this.y, this.x, this.y+30);
+	}
+
 }
 
+d = new Drop(300,0);
+
+function setup() {
+	createCanvas(1200,700);
+}
+
+ticker = 0;
+maxTick = 500;
+
 function draw(){
-	background(0);
-	translate(width/2,height/2);
-	rectMode(CENTER);
+	background(51,51,51,100);
 
-	let offset = 0;
-
-	for(let x = 0; x < width; x+= 10)
-	{
-	let a = angle+offset;
-	let h = map(sin(a), -1, 1, 0, mouseY);
-	fill(255);
-	rect(x - width/2,0,10,h);
-	offset += mouseX/500;
+	ticker++;
+	if(ticker > maxTick){
+		ticker = 0;
+		maxTick = random(500);
+		drops.push(new Drop(random(width),0));
 	}
-	angle += 0.1;
+
+	fill(255);
+	//noStroke();
+	for(let i = 0; i < drops.length; i++)
+	{
+	drops[i].step();
+	drops[i].paint();
+	}
 }
