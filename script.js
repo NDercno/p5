@@ -89,8 +89,8 @@ function draw() {
 
 	fill(255);
 	textAlign(LEFT);
-	textSize(20);
-	text(drops.length, 32, 100);
+	textSize(40);
+	text(drops.length, 32, 130);
 
 	if (!player.killed) {
 		ticker++;
