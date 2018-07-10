@@ -131,7 +131,7 @@ function draw()
 		fill(255,0,0);
 		textAlign(CENTER);
 		textSize(64);
-		text("du bist tot :D", width/2, height/2 - 70);
+		text("anna stinkt haha :D", width/2, height/2 - 70);
 		text("Deine Punktzahl: " + drops.length, width/2, height/2 );
 		text("F5 = Neustart", width/2, height/2 + 70);
 	}
