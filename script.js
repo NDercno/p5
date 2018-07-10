@@ -106,7 +106,8 @@ function draw()
 	if(ticker > maxTick)
 	{
 		ticker = 0;
-		maxTick = random(120);
+		//maxTick = random(120);
+		maxTick = 0;
 		drops.push(new Drop(random(width),0, random(-range,range), random(5,15)));
 	}
 
