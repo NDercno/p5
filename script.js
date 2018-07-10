@@ -52,18 +52,15 @@ class Drop {
 				player.killed = true;
 			}
 
-			this.r = random(100, 255);
-			this.g = random(100, 255);
-			this.b = random(100, 255);
+			this.r = random(150, 255);
+			this.g = random(150, 255);
+			this.b = random(150, 255);
 
 			this.y = 0;
 
 			this.x = random(width);
 
 			if (this == drops[0]) {
-				this.r = 255;
-				this.g = 0;
-				this.b = 0;
 				this.x = mouseX;
 			}
 		}
@@ -88,11 +85,12 @@ var ticker = 0;
 var maxTick = 250;
 
 function draw() {
-	background(51, 51, 51, 100);
+	background(50, 50, 100, 100);
 
 	fill(255);
 	textAlign(LEFT);
 	textSize(20);
+	text(drops.length, 32, 100);
 
 	if (!player.killed) {
 		ticker++;
@@ -107,9 +105,9 @@ function draw() {
 				0,
 				random(-range, range),
 				random(5, 15),
-				random(100, 255),
-				random(100, 255),
-				random(100, 255)
+				random(150, 255),
+				random(150, 255),
+				random(150, 255)
 			)
 		);
 	}
